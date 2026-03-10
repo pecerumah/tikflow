@@ -1,0 +1,57 @@
+# ============================================================
+# TikFlow — Wrangler Configuration
+# Docs: https://developers.cloudflare.com/workers/wrangler/
+# ============================================================
+
+name            = "tikflow-worker"
+main            = "worker.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# ── CRON SCHEDULER ──────────────────────────────────────────
+# Berjalan setiap menit — mengecek jadwal posting
+[triggers]
+crons = ["* * * * *"]
+
+# ── D1 DATABASE ─────────────────────────────────────────────
+[[d1_databases]]
+binding      = "DB"
+database_name = "tikflow-db"
+database_id  = "GANTI_DENGAN_ID_D1_ANDA"
+# Dapatkan dengan: wrangler d1 create tikflow-db
+
+# ── KV NAMESPACE (Sessions) ──────────────────────────────────
+[[kv_namespaces]]
+binding = "KV"
+id      = "GANTI_DENGAN_ID_KV_ANDA"
+# Dapatkan dengan: wrangler kv:namespace create TIKFLOW_KV
+
+# ── ENVIRONMENT VARIABLES ────────────────────────────────────
+[vars]
+FRONTEND_URL      = "https://tikflow.pages.dev"
+OAUTH_REDIRECT_URI = "https://tikflow-worker.SUBDOMAIN_ANDA.workers.dev/api/accounts/callback"
+
+# ── SECRETS (JANGAN TULIS DI SINI, gunakan CLI) ─────────────
+# Jalankan satu per satu:
+#
+#   wrangler secret put TIKTOK_CLIENT_KEY
+#   wrangler secret put TIKTOK_CLIENT_SECRET
+#   wrangler secret put JWT_SECRET
+#
+# JWT_SECRET: string acak panjang, contoh: openssl rand -hex 32
+
+# ── PRODUCTION ENVIRONMENT ───────────────────────────────────
+[env.production]
+name = "tikflow-worker"
+
+[env.production.vars]
+FRONTEND_URL       = "https://tikflow.pages.dev"
+OAUTH_REDIRECT_URI = "https://tikflow-worker.SUBDOMAIN_ANDA.workers.dev/api/accounts/callback"
+
+# ── DEVELOPMENT ──────────────────────────────────────────────
+[env.development]
+name = "tikflow-worker-dev"
+
+[env.development.vars]
+FRONTEND_URL       = "http://localhost:8080"
+OAUTH_REDIRECT_URI = "http://localhost:8787/api/accounts/callback"
