@@ -28,7 +28,7 @@ id      = "5b570431f3c44f25979080ddd9f18dde"
 
 # ── ENVIRONMENT VARIABLES ────────────────────────────────────
 [vars]
-FRONTEND_URL      = "https://flowtik.pages.dev"
+FRONTEND_URL      = "https://flowtik.dimasgraft.workers.dev"
 OAUTH_REDIRECT_URI = "https://tikflow-worker.dimasgraft.workers.dev/api/accounts/callback"
 
 # ── SECRETS (JANGAN TULIS DI SINI, gunakan CLI) ─────────────
@@ -45,7 +45,7 @@ OAUTH_REDIRECT_URI = "https://tikflow-worker.dimasgraft.workers.dev/api/accounts
 name = "tikflow-worker"
 
 [env.production.vars]
-FRONTEND_URL       = "https://flowtik.pages.dev"
+FRONTEND_URL       = "https://flowtik.dimasgraft.workers.dev"
 OAUTH_REDIRECT_URI = "https://tikflow-worker.dimasgraft.workers.dev/api/accounts/callback"
 
 # ── DEVELOPMENT ──────────────────────────────────────────────
