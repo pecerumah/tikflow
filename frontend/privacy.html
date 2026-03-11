@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — TikFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #fafaf8;
+      --accent: #ff2d55;
+      --muted: #6b6b6b;
+      --border: #e8e8e4;
+      --surface: #f4f4f0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .header-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--black); }
+    .logo-icon { width: 32px; height: 32px; background: var(--black); border-radius: 8px; display: grid; place-items: center; }
+    .logo-icon svg { width: 18px; height: 18px; fill: white; }
+    .logo-name { font-family: 'DM Serif Display', serif; font-size: 1.25rem; letter-spacing: -0.02em; }
+    .back-btn { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .back-btn:hover { color: var(--black); }
+    .back-btn svg { width: 16px; height: 16px; }
+
+    .hero {
+      background: var(--black); color: var(--white);
+      padding: 5rem 2rem 4rem; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 20% 50%, rgba(255,45,85,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 960px; margin: 0 auto; position: relative; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px; padding: 4px 14px; font-size: 0.78rem;
+      color: rgba(255,255,255,0.7); margin-bottom: 1.5rem;
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .hero-badge span { width: 6px; height: 6px; background: #30d158; border-radius: 50%; }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem;
+    }
+    .hero h1 em { color: #30d158; font-style: italic; }
+    .hero-meta { display: flex; gap: 2rem; flex-wrap: wrap; font-size: 0.83rem; color: rgba(255,255,255,0.45); margin-top: 1.5rem; }
+
+    .content-wrap {
+      max-width: 960px; margin: 0 auto;
+      display: grid; grid-template-columns: 240px 1fr; gap: 4rem;
+      padding: 4rem 2rem 6rem;
+    }
+    @media (max-width: 720px) { .content-wrap { grid-template-columns: 1fr; gap: 2rem; } .toc { display: none; } }
+
+    .toc { position: sticky; top: 88px; align-self: start; height: fit-content; }
+    .toc-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.75rem; font-weight: 600; }
+    .toc-list { list-style: none; }
+    .toc-list li { border-left: 2px solid var(--border); }
+    .toc-list li.active { border-left-color: #30d158; }
+    .toc-list a { display: block; padding: 5px 12px; font-size: 0.82rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .toc-list a:hover, .toc-list li.active a { color: var(--black); }
+
+    article { min-width: 0; }
+    .section { padding-top: 3rem; margin-top: 3rem; border-top: 1px solid var(--border); }
+    .section:first-child { padding-top: 0; margin-top: 0; border-top: none; }
+    .section-num { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #30d158; font-weight: 600; margin-bottom: 0.5rem; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 1.65rem; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+    p { color: #3a3a3a; margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+    ul, ol { padding-left: 1.5rem; color: #3a3a3a; margin-bottom: 1rem; }
+    li { margin-bottom: 0.4rem; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .callout {
+      background: var(--surface); border-left: 3px solid #30d158;
+      border-radius: 0 8px 8px 0; padding: 1rem 1.25rem;
+      margin: 1.5rem 0; font-size: 0.92rem;
+    }
+    .callout strong { color: var(--black); }
+
+    /* Data table */
+    .data-table {
+      width: 100%; border-collapse: collapse;
+      margin: 1.5rem 0; font-size: 0.88rem;
+    }
+    .data-table th {
+      background: var(--black); color: white;
+      text-align: left; padding: 10px 14px;
+      font-weight: 500; font-size: 0.8rem;
+    }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: #3a3a3a; vertical-align: top; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: var(--surface); }
+
+    /* Rights cards */
+    .rights-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .right-card {
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem; transition: border-color 0.2s;
+    }
+    .right-card:hover { border-color: #30d158; }
+    .right-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .right-card h3 { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .right-card p { font-size: 0.78rem; color: var(--muted); margin: 0; }
+
+    footer { background: var(--black); color: rgba(255,255,255,0.4); text-align: center; padding: 2rem; font-size: 0.8rem; }
+    footer a { color: rgba(255,255,255,0.6); }
+    footer a:hover { color: white; }
+
+    .section { opacity: 0; transform: translateY(16px); transition: opacity 0.5s, transform 0.5s; }
+    .section.visible { opacity: 1; transform: none; }
+    .section:first-child { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.74a4.85 4.85 0 01-1.01-.05z"/></svg>
+      </div>
+      <span class="logo-name">TikFlow</span>
+    </a>
+    <a href="/" class="back-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to app
+    </a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><span></span> Legal Document</div>
+    <h1>Privacy <em>Policy</em></h1>
+    <div class="hero-meta">
+      <span>📅 Effective: January 1, 2025</span>
+      <span>🔄 Last updated: January 1, 2025</span>
+      <span>🛡️ GDPR & Indonesian PDP Aligned</span>
+    </div>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <nav class="toc" aria-label="Table of contents">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list" id="toc">
+      <li><a href="#intro">1. Introduction</a></li>
+      <li><a href="#collect">2. Data We Collect</a></li>
+      <li><a href="#use">3. How We Use Data</a></li>
+      <li><a href="#tiktok">4. TikTok Data</a></li>
+      <li><a href="#storage">5. Data Storage</a></li>
+      <li><a href="#sharing">6. Data Sharing</a></li>
+      <li><a href="#security">7. Security</a></li>
+      <li><a href="#retention">8. Data Retention</a></li>
+      <li><a href="#rights">9. Your Rights</a></li>
+      <li><a href="#children">10. Children's Privacy</a></li>
+      <li><a href="#changes">11. Policy Changes</a></li>
+      <li><a href="#contact">12. Contact</a></li>
+    </ul>
+  </nav>
+
+  <article>
+
+    <div class="section visible" id="intro">
+      <div class="section-num">Section 01</div>
+      <h2>Introduction</h2>
+      <p>TikFlow ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard information when you use TikFlow at <a href="https://flowtik.dimasgraft.workers.dev">flowtik.dimasgraft.workers.dev</a>.</p>
+      <p>This policy applies to all users of TikFlow, including Super Admins and regular Users. By using TikFlow, you consent to the practices described in this Privacy Policy.</p>
+      <div class="callout"><strong>Our commitment:</strong> We believe in minimal data collection. We only collect what is strictly necessary to provide the TikFlow scheduling service — nothing more.</div>
+    </div>
+
+    <div class="section" id="collect">
+      <div class="section-num">Section 02</div>
+      <h2>Data We Collect</h2>
+      <p>We collect the following categories of information:</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Data Points</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Account Data</strong></td>
+            <td>Name, email address, hashed password</td>
+            <td>Authentication & account management</td>
+          </tr>
+          <tr>
+            <td><strong>TikTok Tokens</strong></td>
+            <td>OAuth access tokens, refresh tokens, TikTok Open ID, display name, avatar URL</td>
+            <td>Posting videos to TikTok on your behalf</td>
+          </tr>
+          <tr>
+            <td><strong>Post Data</strong></td>
+            <td>Video captions, hashtags, scheduled times, affiliate product IDs, status</td>
+            <td>Scheduling and delivering your content</td>
+          </tr>
+          <tr>
+            <td><strong>R2 Configuration</strong></td>
+            <td>R2 endpoint URL, bucket name, API keys (encrypted), public domain</td>
+            <td>Connecting to your personal R2 storage for video uploads</td>
+          </tr>
+          <tr>
+            <td><strong>Usage Logs</strong></td>
+            <td>Actions performed (e.g., post created, account connected), timestamps, IP addresses</td>
+            <td>Security, audit trail, troubleshooting</td>
+          </tr>
+          <tr>
+            <td><strong>Technical Data</strong></td>
+            <td>Browser type, device type, referring URLs</td>
+            <td>Improving service performance</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>We do <strong>not</strong> collect: your TikTok password, payment information, or any personal data beyond what is listed above.</p>
+    </div>
+
+    <div class="section" id="use">
+      <div class="section-num">Section 03</div>
+      <h2>How We Use Your Data</h2>
+      <p>We use your information for the following purposes:</p>
+      <ul>
+        <li><strong>Service Delivery</strong> — Scheduling and posting your videos to TikTok at the specified times</li>
+        <li><strong>Authentication</strong> — Verifying your identity and maintaining secure sessions</li>
+        <li><strong>Account Management</strong> — Managing your profile, user roles, and TikTok account connections</li>
+        <li><strong>Communication</strong> — Sending essential service notifications (e.g., failed posts, security alerts)</li>
+        <li><strong>Security</strong> — Detecting and preventing unauthorized access or abuse</li>
+        <li><strong>Improvement</strong> — Understanding how the Service is used to improve features</li>
+      </ul>
+      <p>We do not use your data for advertising, profiling, or any purpose not listed above.</p>
+    </div>
+
+    <div class="section" id="tiktok">
+      <div class="section-num">Section 04</div>
+      <h2>TikTok Data & API Usage</h2>
+      <p>TikFlow integrates with the TikTok API. When you connect your TikTok account, we receive and store:</p>
+      <ul>
+        <li>Your TikTok Open ID (a unique anonymous identifier)</li>
+        <li>Display name and avatar (for UI display only)</li>
+        <li>OAuth access token and refresh token (for posting on your behalf)</li>
+        <li>Follower count and basic profile statistics</li>
+      </ul>
+
+      <div class="callout"><strong>Token Security:</strong> TikTok tokens are stored in our Cloudflare D1 database and are used exclusively to post content you have scheduled. Tokens are automatically refreshed before expiry and invalidated when you disconnect your account.</div>
+
+      <p>TikFlow only requests the following TikTok API scopes:</p>
+      <ul>
+        <li><code>user.info.basic</code> — to display your profile information</li>
+        <li><code>video.upload</code> — to upload your video to TikTok</li>
+        <li><code>video.publish</code> — to publish your scheduled post</li>
+      </ul>
+      <p>We access your TikTok data only when required to perform scheduling functions. TikTok's own <a href="https://www.tiktok.com/legal/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> governs data held by TikTok.</p>
+    </div>
+
+    <div class="section" id="storage">
+      <div class="section-num">Section 05</div>
+      <h2>Data Storage & Location</h2>
+      <p>TikFlow uses Cloudflare's infrastructure for all data storage:</p>
+      <ul>
+        <li><strong>Database (D1)</strong> — Account data, post metadata, and TikTok tokens stored in Cloudflare D1 (SQLite serverless). Data is replicated globally via Cloudflare's network.</li>
+        <li><strong>Sessions (KV)</strong> — Login session tokens stored in Cloudflare KV with a 7-day expiry.</li>
+        <li><strong>Video Files (R2)</strong> — Your videos are stored in <em>your own</em> personal Cloudflare R2 bucket. TikFlow does not control or retain your video files. You own and manage your R2 storage.</li>
+      </ul>
+      <p>Cloudflare's data centers are located globally. For more information on Cloudflare's data handling, see <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's Privacy Policy</a>.</p>
+    </div>
+
+    <div class="section" id="sharing">
+      <div class="section-num">Section 06</div>
+      <h2>Data Sharing & Disclosure</h2>
+      <p>We do not sell, trade, or rent your personal information. We may share data only in these circumstances:</p>
+      <ul>
+        <li><strong>TikTok</strong> — We transmit your video content and post information to TikTok's API solely for the purpose of publishing your scheduled posts</li>
+        <li><strong>Cloudflare</strong> — Our infrastructure provider processes data as described in Section 5</li>
+        <li><strong>Legal Requirements</strong> — If required by law, court order, or governmental authority</li>
+        <li><strong>Safety</strong> — To protect the rights, property, or safety of TikFlow, our users, or the public</li>
+        <li><strong>Business Transfer</strong> — In connection with a merger or acquisition (users will be notified)</li>
+      </ul>
+      <p>We do not share your data with advertisers, data brokers, analytics companies, or any other third parties.</p>
+    </div>
+
+    <div class="section" id="security">
+      <div class="section-num">Section 07</div>
+      <h2>Security Measures</h2>
+      <p>We implement industry-standard security practices to protect your data:</p>
+      <ul>
+        <li>Passwords are hashed using SHA-256 and never stored in plain text</li>
+        <li>All data transmission uses HTTPS/TLS encryption</li>
+        <li>TikTok tokens are stored server-side and never exposed to the browser</li>
+        <li>R2 credentials are stored encrypted in our database</li>
+        <li>Session tokens expire automatically and are invalidated on logout</li>
+        <li>Access is controlled by role-based permissions (Super Admin / User)</li>
+        <li>Audit logs track all sensitive actions for security review</li>
+      </ul>
+      <p>No method of transmission or storage is 100% secure. While we strive to protect your data, we cannot guarantee absolute security. Please use a strong, unique password and report any suspected breach immediately.</p>
+    </div>
+
+    <div class="section" id="retention">
+      <div class="section-num">Section 08</div>
+      <h2>Data Retention</h2>
+      <p>We retain your data for as long as your account is active or as needed to provide the Service:</p>
+      <ul>
+        <li><strong>Account data</strong> — Retained until you delete your account</li>
+        <li><strong>Post history</strong> — Retained for 12 months after posting, then automatically deleted</li>
+        <li><strong>TikTok tokens</strong> — Deleted immediately when you disconnect the account</li>
+        <li><strong>Session tokens</strong> — Expire after 7 days of inactivity</li>
+        <li><strong>Audit logs</strong> — Retained for 90 days for security purposes</li>
+        <li><strong>Video files</strong> — Stored in your own R2; TikFlow has no control over retention</li>
+      </ul>
+      <p>Upon account deletion, all associated personal data is permanently removed within 30 days.</p>
+    </div>
+
+    <div class="section" id="rights">
+      <div class="section-num">Section 09</div>
+      <h2>Your Privacy Rights</h2>
+      <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+
+      <div class="rights-grid">
+        <div class="right-card">
+          <div class="right-icon">👁️</div>
+          <h3>Right to Access</h3>
+          <p>Request a copy of all personal data we hold about you.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">✏️</div>
+          <h3>Right to Rectify</h3>
+          <p>Correct any inaccurate or incomplete personal data.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">🗑️</div>
+          <h3>Right to Delete</h3>
+          <p>Request deletion of your personal data ("right to be forgotten").</p>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">⏸️</div>
+          <h3>Right to Restrict</h3>
+          <p>Limit how we process your data in certain circumstances.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">📤</div>
+          <h3>Right to Portability</h3>
+          <p>Receive your data in a structured, machine-readable format.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">🚫</div>
+          <h3>Right to Object</h3>
+          <p>Object to processing of your data for certain purposes.</p>
+        </div>
+      </div>
+
+      <p>To exercise any of these rights, contact us at <a href="mailto:sinarlirik@gmail.com">sinarlirik@gmail.com</a>. We will respond within 30 days.</p>
+      <p>You may also disconnect your TikTok accounts at any time directly within the TikFlow dashboard, which immediately revokes our access to those accounts.</p>
+    </div>
+
+    <div class="section" id="children">
+      <div class="section-num">Section 10</div>
+      <h2>Children's Privacy</h2>
+      <p>TikFlow is not intended for children under the age of 13 (or 16 in the EU/EEA). We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately and we will delete it.</p>
+      <p>Users must be at least 18 years old to use TikFlow for commercial or business purposes involving TikTok affiliate marketing features.</p>
+    </div>
+
+    <div class="section" id="changes">
+      <div class="section-num">Section 11</div>
+      <h2>Changes to This Policy</h2>
+      <p>We may update this Privacy Policy periodically. When we make material changes, we will:</p>
+      <ul>
+        <li>Update the "Last updated" date at the top of this page</li>
+        <li>Notify registered users via email for significant changes</li>
+        <li>Display a notice within the TikFlow application</li>
+      </ul>
+      <p>Your continued use of TikFlow after changes take effect constitutes acceptance of the revised Privacy Policy. We encourage you to review this policy periodically.</p>
+    </div>
+
+    <div class="section" id="contact">
+      <div class="section-num">Section 12</div>
+      <h2>Contact & Data Requests</h2>
+      <p>For any privacy-related questions, data requests, or concerns, please contact our Privacy team:</p>
+      <ul>
+        <li><strong>Privacy Email:</strong> <a href="mailto:sinarlirik@gmail.com">sinarlirik@gmail.com</a></li>
+        <li><strong>General Email:</strong> <a href="mailto:sinarlirik@gmail.com">pecerumah@gmail.com</a></li>
+        <li><strong>Website:</strong> <a href="https://flowtik.dimasgraft.workers.dev">flowtik.dimasgraft.workers.dev</a></li>
+      </ul>
+      <div class="callout"><strong>Response time:</strong> We are committed to responding to all privacy requests within 30 days. For urgent security concerns, please mark your email as "URGENT: Security" for priority handling.</div>
+      <p>This Privacy Policy is governed by and construed in accordance with applicable data protection laws, including the Indonesian Personal Data Protection Law (UU PDP) where applicable.</p>
+    </div>
+
+  </article>
+</div>
+
+<footer>
+  <p>© 2025 TikFlow. All rights reserved. &nbsp;·&nbsp;
+    <a href="/tos.html">Terms of Service</a> &nbsp;·&nbsp;
+    <a href="/privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="/">Back to App</a>
+  </p>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('.section:not(.visible)');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  sections.forEach(s => obs.observe(s));
+
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  const headings = document.querySelectorAll('.section');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    headings.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    document.querySelectorAll('.toc-list li').forEach((li, i) => {
+      li.classList.toggle('active', tocLinks[i]?.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+</body>
+</html>

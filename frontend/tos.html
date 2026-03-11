@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — TikFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #fafaf8;
+      --accent: #ff2d55;
+      --accent2: #fe3c72;
+      --muted: #6b6b6b;
+      --border: #e8e8e4;
+      --surface: #f4f4f0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── Header ── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .header-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--black);
+    }
+    .logo-icon {
+      width: 32px; height: 32px;
+      background: var(--black);
+      border-radius: 8px;
+      display: grid; place-items: center;
+    }
+    .logo-icon svg { width: 18px; height: 18px; fill: white; }
+    .logo-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem; letter-spacing: -0.02em;
+    }
+    .back-btn {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.85rem; color: var(--muted);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .back-btn:hover { color: var(--black); }
+    .back-btn svg { width: 16px; height: 16px; }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--black);
+      color: var(--white);
+      padding: 5rem 2rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(255,45,85,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 960px; margin: 0 auto; position: relative; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      padding: 4px 14px; font-size: 0.78rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 1.5rem; letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .hero-badge span { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      line-height: 1.1; letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .hero h1 em { color: var(--accent); font-style: italic; }
+    .hero-meta {
+      display: flex; gap: 2rem; flex-wrap: wrap;
+      font-size: 0.83rem; color: rgba(255,255,255,0.45);
+      margin-top: 1.5rem;
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* ── Layout ── */
+    .content-wrap {
+      max-width: 960px; margin: 0 auto;
+      display: grid; grid-template-columns: 240px 1fr; gap: 4rem;
+      padding: 4rem 2rem 6rem;
+    }
+    @media (max-width: 720px) {
+      .content-wrap { grid-template-columns: 1fr; gap: 2rem; }
+      .toc { display: none; }
+    }
+
+    /* ── TOC Sidebar ── */
+    .toc {
+      position: sticky; top: 88px;
+      align-self: start;
+      height: fit-content;
+    }
+    .toc-title {
+      font-size: 0.7rem; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--muted);
+      margin-bottom: 0.75rem; font-weight: 600;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { border-left: 2px solid var(--border); }
+    .toc-list li.active { border-left-color: var(--accent); }
+    .toc-list a {
+      display: block; padding: 5px 12px;
+      font-size: 0.82rem; color: var(--muted);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .toc-list a:hover, .toc-list li.active a { color: var(--black); }
+
+    /* ── Article ── */
+    article { min-width: 0; }
+
+    .section {
+      padding-top: 3rem; margin-top: 3rem;
+      border-top: 1px solid var(--border);
+    }
+    .section:first-child { padding-top: 0; margin-top: 0; border-top: none; }
+
+    .section-num {
+      font-size: 0.72rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent);
+      font-weight: 600; margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.65rem; line-height: 1.2;
+      letter-spacing: -0.02em; margin-bottom: 1.25rem;
+    }
+    p { color: #3a3a3a; margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      padding-left: 1.5rem; color: #3a3a3a;
+      margin-bottom: 1rem;
+    }
+    li { margin-bottom: 0.4rem; }
+
+    .callout {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+    .callout strong { color: var(--black); }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--black); color: rgba(255,255,255,0.4);
+      text-align: center; padding: 2rem;
+      font-size: 0.8rem;
+    }
+    footer a { color: rgba(255,255,255,0.6); }
+    footer a:hover { color: white; }
+
+    /* ── Scroll animation ── */
+    .section { opacity: 0; transform: translateY(16px); transition: opacity 0.5s, transform 0.5s; }
+    .section.visible { opacity: 1; transform: none; }
+    .section:first-child { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.74a4.85 4.85 0 01-1.01-.05z"/></svg>
+      </div>
+      <span class="logo-name">TikFlow</span>
+    </a>
+    <a href="/" class="back-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to app
+    </a>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><span></span> Legal Document</div>
+    <h1>Terms of <em>Service</em></h1>
+    <div class="hero-meta">
+      <span>📅 Effective: January 1, 2025</span>
+      <span>🔄 Last updated: January 1, 2025</span>
+      <span>🌏 Applies globally</span>
+    </div>
+  </div>
+</div>
+
+<!-- Main content -->
+<div class="content-wrap">
+
+  <!-- TOC -->
+  <nav class="toc" aria-label="Table of contents">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list" id="toc">
+      <li><a href="#acceptance">1. Acceptance</a></li>
+      <li><a href="#services">2. Description of Service</a></li>
+      <li><a href="#accounts">3. User Accounts</a></li>
+      <li><a href="#tiktok">4. TikTok Integration</a></li>
+      <li><a href="#content">5. User Content</a></li>
+      <li><a href="#prohibited">6. Prohibited Uses</a></li>
+      <li><a href="#privacy">7. Privacy</a></li>
+      <li><a href="#ip">8. Intellectual Property</a></li>
+      <li><a href="#disclaimer">9. Disclaimer</a></li>
+      <li><a href="#liability">10. Limitation of Liability</a></li>
+      <li><a href="#termination">11. Termination</a></li>
+      <li><a href="#changes">12. Changes to Terms</a></li>
+      <li><a href="#contact">13. Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Article -->
+  <article>
+
+    <div class="section visible" id="acceptance">
+      <div class="section-num">Section 01</div>
+      <h2>Acceptance of Terms</h2>
+      <p>Welcome to TikFlow ("we," "our," or "us"). By accessing or using the TikFlow scheduling platform available at <a href="https://flowtik.dimasgraft.workers.dev">flowtik.dimasgraft.workers.dev</a> (the "Service"), you agree to be bound by these Terms of Service ("Terms").</p>
+      <p>If you do not agree to these Terms, please do not use our Service. These Terms apply to all users, including visitors, registered users, and administrators.</p>
+      <div class="callout"><strong>Important:</strong> By connecting your TikTok account to TikFlow, you also agree to TikTok's Terms of Service and Developer Terms applicable to third-party applications.</div>
+    </div>
+
+    <div class="section" id="services">
+      <div class="section-num">Section 02</div>
+      <h2>Description of Service</h2>
+      <p>TikFlow is a content scheduling and management platform that enables users to:</p>
+      <ul>
+        <li>Schedule and automate TikTok video posts in advance</li>
+        <li>Manage multiple TikTok accounts from a single dashboard</li>
+        <li>Upload and store video files via their own Cloudflare R2 storage</li>
+        <li>Add TikTok affiliate products (Keranjang VT) to scheduled posts</li>
+        <li>Monitor posting history and account performance</li>
+      </ul>
+      <p>We reserve the right to modify, suspend, or discontinue the Service at any time with or without notice.</p>
+    </div>
+
+    <div class="section" id="accounts">
+      <div class="section-num">Section 03</div>
+      <h2>User Accounts</h2>
+      <p>To access TikFlow's full features, you must create an account. You agree to:</p>
+      <ul>
+        <li>Provide accurate, current, and complete information during registration</li>
+        <li>Maintain the security of your password and account credentials</li>
+        <li>Notify us immediately of any unauthorized account access</li>
+        <li>Accept responsibility for all activities that occur under your account</li>
+      </ul>
+      <p>We reserve the right to terminate accounts that violate these Terms, remain inactive for extended periods, or are used for fraudulent purposes.</p>
+    </div>
+
+    <div class="section" id="tiktok">
+      <div class="section-num">Section 04</div>
+      <h2>TikTok Integration</h2>
+      <p>TikFlow integrates with TikTok's API to provide scheduling functionality. By connecting your TikTok account, you acknowledge and agree that:</p>
+      <ul>
+        <li>TikFlow will access your TikTok account data (profile, posting permissions) solely to provide the Service</li>
+        <li>You are solely responsible for all content posted to TikTok through TikFlow</li>
+        <li>TikFlow's functionality depends on TikTok's API availability and may be affected by TikTok's policies or service disruptions</li>
+        <li>We do not guarantee successful delivery of scheduled posts if TikTok's API is unavailable</li>
+        <li>You may revoke TikFlow's access to your TikTok account at any time through TikTok's account settings</li>
+      </ul>
+      <div class="callout">TikFlow uses TikTok's official Content Posting API and complies with TikTok's Platform Terms. We do not store your TikTok password and do not access any data beyond what is necessary for scheduling.</div>
+    </div>
+
+    <div class="section" id="content">
+      <div class="section-num">Section 05</div>
+      <h2>User Content</h2>
+      <p>You retain ownership of all content you upload to TikFlow ("User Content"). By using the Service, you grant TikFlow a limited, non-exclusive, royalty-free license to store, process, and transmit your content solely for the purpose of providing the Service.</p>
+      <p>You represent and warrant that your content:</p>
+      <ul>
+        <li>Does not infringe any third-party intellectual property rights</li>
+        <li>Does not violate applicable laws or regulations</li>
+        <li>Complies with TikTok's Community Guidelines and Terms of Service</li>
+        <li>Does not contain malware, viruses, or harmful code</li>
+        <li>Is not fraudulent, deceptive, or misleading</li>
+      </ul>
+      <p>Video files are stored in your personal Cloudflare R2 storage bucket. TikFlow does not retain copies of your videos beyond what is needed for scheduled posting.</p>
+    </div>
+
+    <div class="section" id="prohibited">
+      <div class="section-num">Section 06</div>
+      <h2>Prohibited Uses</h2>
+      <p>You agree not to use TikFlow to:</p>
+      <ul>
+        <li>Violate any applicable laws, regulations, or third-party rights</li>
+        <li>Post content that promotes hate speech, violence, harassment, or illegal activity</li>
+        <li>Engage in spamming, phishing, or deceptive marketing practices</li>
+        <li>Attempt to reverse-engineer, hack, or disrupt the Service</li>
+        <li>Use automated bots or scripts beyond TikFlow's intended functionality</li>
+        <li>Share your account credentials with unauthorized parties</li>
+        <li>Post content that violates TikTok's Community Guidelines</li>
+        <li>Circumvent TikTok's rate limits or API usage policies</li>
+      </ul>
+    </div>
+
+    <div class="section" id="privacy">
+      <div class="section-num">Section 07</div>
+      <h2>Privacy</h2>
+      <p>Your privacy is important to us. Our collection and use of personal information is governed by our <a href="/privacy.html">Privacy Policy</a>, which is incorporated into these Terms by reference.</p>
+      <p>Key points:</p>
+      <ul>
+        <li>We collect only the minimum data necessary to provide the Service</li>
+        <li>We do not sell your personal data to third parties</li>
+        <li>TikTok account tokens are stored securely and used only for posting</li>
+        <li>You can request deletion of your data at any time</li>
+      </ul>
+    </div>
+
+    <div class="section" id="ip">
+      <div class="section-num">Section 08</div>
+      <h2>Intellectual Property</h2>
+      <p>The TikFlow platform, including its design, code, logos, and interface elements, is owned by TikFlow and protected by intellectual property laws. You may not copy, modify, distribute, or create derivative works without our written permission.</p>
+      <p>The TikTok name, logo, and related marks are trademarks of ByteDance Ltd. TikFlow is an independent tool and is not affiliated with, endorsed by, or sponsored by TikTok or ByteDance.</p>
+    </div>
+
+    <div class="section" id="disclaimer">
+      <div class="section-num">Section 09</div>
+      <h2>Disclaimer of Warranties</h2>
+      <p>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+      <p>We do not warrant that:</p>
+      <ul>
+        <li>The Service will be uninterrupted, error-free, or completely secure</li>
+        <li>Scheduled posts will always be delivered at the exact time specified</li>
+        <li>The Service will meet all of your requirements</li>
+        <li>Any errors or defects will be corrected</li>
+      </ul>
+    </div>
+
+    <div class="section" id="liability">
+      <div class="section-num">Section 10</div>
+      <h2>Limitation of Liability</h2>
+      <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, TIKFLOW SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, DATA, OR GOODWILL, ARISING FROM YOUR USE OF OR INABILITY TO USE THE SERVICE.</p>
+      <p>Our total liability to you for any claims arising from use of the Service shall not exceed the amount you paid us in the twelve months preceding the claim (or $10 USD if you have not made any payments).</p>
+    </div>
+
+    <div class="section" id="termination">
+      <div class="section-num">Section 11</div>
+      <h2>Termination</h2>
+      <p>You may stop using TikFlow at any time. We may suspend or terminate your account if you violate these Terms, engage in conduct harmful to other users or the Service, or for any other reason at our sole discretion.</p>
+      <p>Upon termination, your right to use the Service ceases immediately. Provisions that by their nature should survive termination (including intellectual property, disclaimers, and limitations of liability) will continue to apply.</p>
+    </div>
+
+    <div class="section" id="changes">
+      <div class="section-num">Section 12</div>
+      <h2>Changes to Terms</h2>
+      <p>We may update these Terms from time to time. When we make material changes, we will update the "Last updated" date at the top of this page and, where appropriate, notify users via email or in-app notification.</p>
+      <p>Your continued use of TikFlow after changes become effective constitutes your acceptance of the revised Terms. We encourage you to review these Terms periodically.</p>
+    </div>
+
+    <div class="section" id="contact">
+      <div class="section-num">Section 13</div>
+      <h2>Contact Us</h2>
+      <p>If you have questions about these Terms of Service, please contact us:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:sinarlirik@gmail.com">sinarlirik@gmail.com</a></li>
+        <li><strong>Website:</strong> <a href="https://flowtik.dimasgraft.workers.dev">flowtik.dimasgraft.workers.dev</a></li>
+      </ul>
+      <div class="callout">These Terms of Service were last reviewed and updated on January 1, 2025. We are committed to maintaining a transparent and fair relationship with all TikFlow users.</div>
+    </div>
+
+  </article>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 TikFlow. All rights reserved. &nbsp;·&nbsp;
+    <a href="/tos.html">Terms of Service</a> &nbsp;·&nbsp;
+    <a href="/privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="/">Back to App</a>
+  </p>
+</footer>
+
+<script>
+  // Intersection Observer for scroll animations
+  const sections = document.querySelectorAll('.section:not(.visible)');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  sections.forEach(s => obs.observe(s));
+
+  // TOC active state
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  const headings = document.querySelectorAll('.section');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    headings.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    document.querySelectorAll('.toc-list li').forEach((li, i) => {
+      li.classList.toggle('active', tocLinks[i]?.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+</body>
+</html>
