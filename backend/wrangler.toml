@@ -1,57 +1,28 @@
 # ============================================================
 # TikFlow — Wrangler Configuration
-# Docs: https://developers.cloudflare.com/workers/wrangler/
 # ============================================================
 
-name            = "tikflow-worker"
-main            = "worker.js"
+name               = "flowtik-worker"
+main               = "worker.js"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 
 # ── CRON SCHEDULER ──────────────────────────────────────────
-# Berjalan setiap menit — mengecek jadwal posting
 [triggers]
 crons = ["* * * * *"]
 
 # ── D1 DATABASE ─────────────────────────────────────────────
 [[d1_databases]]
-binding      = "tikflow_db"
+binding       = "DB"
 database_name = "tikflow-db"
-database_id  = "1c979d26-9de8-4818-a359-8bd7a74c8b3b"
-# Dapatkan dengan: wrangler d1 create tikflow-db
+database_id   = "1c979d26-9de8-4818-a359-8bd7a74c8b3b"
 
-# ── KV NAMESPACE (Sessions) ──────────────────────────────────
+# ── KV NAMESPACE ─────────────────────────────────────────────
 [[kv_namespaces]]
-binding = "TIKFLOW_KV"
+binding = "KV"
 id      = "5b570431f3c44f25979080ddd9f18dde"
-# Dapatkan dengan: wrangler kv:namespace create TIKFLOW_KV
 
 # ── ENVIRONMENT VARIABLES ────────────────────────────────────
 [vars]
-FRONTEND_URL      = "https://flowtik.dimasgraft.workers.dev"
-OAUTH_REDIRECT_URI = "https://tikflow-worker.dimasgraft.workers.dev/api/accounts/callback"
-
-# ── SECRETS (JANGAN TULIS DI SINI, gunakan CLI) ─────────────
-# Jalankan satu per satu:
-#
-#   wrangler secret put aw198fdp2glw7dq0
-#   wrangler secret put rWcwZx3AH7D4uN0h5uFy9FyxCWidpsee
-#   wrangler secret put a8f3k9d2m7n1p4q6r0s5t8u2v9w3x7y1z4b6c0d8e2f5g9h3j7
-#
-# JWT_SECRET: string acak panjang, contoh: openssl rand -hex 32
-
-# ── PRODUCTION ENVIRONMENT ───────────────────────────────────
-[env.production]
-name = "tikflow-worker"
-
-[env.production.vars]
 FRONTEND_URL       = "https://flowtik.dimasgraft.workers.dev"
-OAUTH_REDIRECT_URI = "https://tikflow-worker.dimasgraft.workers.dev/api/accounts/callback"
-
-# ── DEVELOPMENT ──────────────────────────────────────────────
-[env.development]
-name = "tikflow-worker-dev"
-
-[env.development.vars]
-FRONTEND_URL       = "https://flowtik.dimasgraft.workers.dev"
-OAUTH_REDIRECT_URI = "https://tikflow-worker.dimasgraft.workers.dev/api/accounts/callback"
+OAUTH_REDIRECT_URI = "https://flowtik-worker.dimasgraft.workers.dev/api/accounts/callback"
