@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="email-obfuscation" content="disable">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TikFlow — TikTok Scheduler Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -290,8 +291,8 @@
     </div>
     <button class="btn btn-primary btn-full" onclick="doLogin()">Masuk ke TikFlow</button>
     <div style="margin-top:16px;text-align:center;font-size:11px;color:var(--muted)">
-      Demo Super Admin: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fb9a9f969295bb8f92909d97948cd59a8b8b">[email&#160;protected]</a> / admin123<br>
-      Demo User: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="aadfd9cfd8eadec3c1ccc6c5dd84cbdada">[email&#160;protected]</a> / user123
+      Demo Super Admin: admin&#64;tikflow.app / admin123<br>
+      Demo User: user&#64;tikflow.app / user123
     </div>
   </div>
 </div>
@@ -401,9 +402,8 @@
 <!-- TOAST -->
 <div class="toast-wrap" id="toasts"></div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ===================== STATE =====================
-const API_BASE = 'https://tikflow-worker.dimasgraft.workers.dev';  
 let ME = null;
 const S = {
   users: [
