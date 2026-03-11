@@ -53,5 +53,5 @@ OAUTH_REDIRECT_URI = "https://tikflow-worker.dimasgraft.workers.dev/api/accounts
 name = "tikflow-worker-dev"
 
 [env.development.vars]
-FRONTEND_URL       = "http://localhost:8080"
-OAUTH_REDIRECT_URI = "http://localhost:8787/api/accounts/callback"
+FRONTEND_URL       = "https://flowtik.dimasgraft.workers.dev"
+OAUTH_REDIRECT_URI = "https://tikflow-worker.dimasgraft.workers.dev/api/accounts/callback"
