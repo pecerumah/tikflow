@@ -287,9 +287,9 @@
     </div>
     <div class="form-group">
       <label>Password</label>
-      <input type="password" id="lPass" placeholder="••••••••" value="admin123" onkeydown="if(event.key==='Enter')doLogin()">
+      <input type="password" id="lPass" placeholder="••••••••" value="admin123">
     </div>
-    <button class="btn btn-primary btn-full" onclick="doLogin()">Masuk ke TikFlow</button>
+    <button class="btn btn-primary btn-full" id="loginBtn">Masuk ke TikFlow</button>
     <div style="margin-top:16px;text-align:center;font-size:11px;color:var(--muted)">
       Demo Super Admin: admin&#64;tikflow.app / admin123<br>
       Demo User: user&#64;tikflow.app / user123
@@ -1500,3 +1500,34 @@ function toast(msg, type='ok') {
   const el = document.createElement('div');
   el.className = `toast ${type}`;
  
+  const icons = { ok:'✅', err:'❌', warn:'⚠️' };
+  el.innerHTML = `${icons[type]||'ℹ️'} <span>${msg}</span>`;
+  c.appendChild(el);
+  setTimeout(() => el.remove(), 3800);
+}
+
+// ===================== INIT — addEventListener (fixes Cloudflare injection) =====================
+document.addEventListener('DOMContentLoaded', function() {
+  // Login button
+  var loginBtn = document.getElementById('loginBtn');
+  if (loginBtn) {
+    loginBtn.addEventListener('click', function() { doLogin(); });
+  }
+  // Enter key on password field
+  var lPass = document.getElementById('lPass');
+  if (lPass) {
+    lPass.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') doLogin();
+    });
+  }
+  // Enter key on email field  
+  var lEmail = document.getElementById('lEmail');
+  if (lEmail) {
+    lEmail.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') doLogin();
+    });
+  }
+});
+</script>
+</body>
+</html>
